@@ -1,0 +1,19 @@
+//@version=5
+indicator("Faiz-XY", overlay=true)
+
+// Calculate AO
+//ao = ta.sma(hl2, 5) - ta.sma(hl2, 34)
+
+// Calculate RSI
+//rsi = ta.rsi(close, 14)
+
+// Define Bull and Bear conditions
+Bull = close > open and close[1] > open[1] and close[1] < close
+Bear = close < open and close[1] < open[1] and close[1] > close 
+// Plot shapes
+plotshape(Bull, style=shape.triangleup, color=color.green, location=location.belowbar, size=size.small)
+//plotshape(Bear, style=shape.triangledown, color=color.red, location=location.abovebar, size=size.small)
+
+// Plot AO histogram
+//diff = ao - ao[1]
+//plot(ao, color=diff <= 0 ? #F44336 : #009688, style=plot.style_histogram)

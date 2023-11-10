@@ -1,0 +1,23 @@
+//@version=4
+//@author=faizazizan
+study("FCPO Time Session", overlay=true, scale=scale.none)
+
+sess1 = input(10.30, "Time 1", minval=0.0, maxval=23.60)
+
+min1 = (sess1-floor(sess1))
+cond1 = hour == floor(sess1) and minute == (min1*100)
+plot(cond1 ? 10e20 : na, style=plot.style_histogram, color=color.blue, transp=60)
+
+// Add line to mark time 18.00
+sess2 = input(17.55, "Time 2", minval=0.0, maxval=23.60)
+
+min2 = (sess2-floor(sess2))
+cond2 = hour == floor(sess2) and minute == (min2*100)
+plot(cond2 ? 10e20 : na, style=plot.style_histogram, color=color.rgb(195, 117, 143), transp=60)
+
+// Add line to mark time 14.30
+sess3 = input(14.30, "Time 3", minval=0.0, maxval=23.60)
+
+min3 = (sess3-floor(sess3))
+cond3 = hour == floor(sess3) and minute == (min3*100)
+plot(cond3 ? 10e20 : na, style=plot.style_histogram, color=color.rgb(105, 106, 97), transp=60)
